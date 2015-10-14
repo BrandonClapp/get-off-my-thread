@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Test</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/async/1.4.2/async.js"></script>
+	<script src="tasks.js"></script>
+	<script src="test_setTimeout.js"></script>
+	<script src="test_async.js"></script>
+	<script src="worker_a.js"></script>
+	<script src="worker_b.js"></script>
+	<script src="test_webworker.js"></script>
+</head>
+</body>
+	<style>
+		li {
+			cursor: pointer;
+		}
+	</style>
+
+	<h1>Run Tests (output to console)</h1>
+	<ul>
+		<li id="setTimeout">setTimeout test (blocking)</li>
+		<li id="async">async library test (blocking)</li>
+		<li id="webworker">web worker test (non-blocking)</li>
+	</ul>
+
+	<script>
+		(function($){
+			$('#setTimeout').on('click', function() {
+				setTimeout_main();
+			});
+
+			$('#async').on('click', function() {
+				async_main();
+			});
+
+			$('#webworker').on('click', function() {
+				webworker_main();
+			});
+		})(jQuery);
+	</script>
+</body>
+</html>
